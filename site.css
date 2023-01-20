@@ -1,13 +1,14 @@
 .to-do-section {
-    min-height: 450px;
+    min-height: 650px;
 }
 #btnAddNewCard{
     font-size: 2.5rem;
     cursor: pointer;
 }
-#toDrag{
+.to-drag{
     width: 300px;
     font-size: 1.5rem;
+    overflow-wrap: break-word;
 }
 #modalNewCard{
     top: 7%;
