@@ -25,7 +25,7 @@
         <div class="row">
             <div id="newTask" class="col-3 to-do-section bg-black">
                 <h3 class="text-white">NEW</h3>
-                <div class="bg-info p-5 text-white to-drag" draggable="true"> DRAG ME UWU</div>
+                <div class="bg-info p-2 text-white to-drag" draggable="true"><div class="row"><div class="btn-close-card btn-close-card justify-content-end d-flex">&#x2715</div></div><p>DRAG ME UWU</p></div>
             </div>
             <div id="doingTask" class="col-3 to-do-section bg-secondary">
                 <h3 class="text-white">DOING</h3>
@@ -39,10 +39,16 @@
         </div>
         <section id="modalNewCard" class="d-none position-fixed bg-white p-4">
             <header class="row">
-                <div class="col-11">
+                <div class="col-6">
                     <h2 class="py-3">
                         NEW CARD
                     </h2>
+                </div>
+                <div class="col-5 pt-3">
+                    <span id="blueOption" class="color-option bg-info rounded-circle px-3 py-1"></span>
+                    <span id="yellowOption" class="color-option bg-warning rounded-circle px-3 py-1"></span>
+                    <span id="greenOption" class="color-option bg-success rounded-circle px-3 py-1"></span>
+                    <span id="redOption" class="color-option bg-danger rounded-circle px-3 py-1"></span>
                 </div>
                 <div class="col-1">
                     <i class="bi bi-chevron-double-up close-modal-nc"></i>
