@@ -48,15 +48,25 @@ label.position-absolute.label-on-top{
     font-family: 'Homemade Apple', cursive;
     font-size: 1.5rem;
 }
+.border-shiny{
+    border: 4px solid white;
+
+}
 #newTask{
     background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(34,193,195,1) 100%);
 }
 #doingTask{
     background: linear-gradient(0deg, rgba(253,111,45,1), rgba(253,187,45,1) 100%);
 }
-#onWayTask{
-    background: linear-gradient(0deg,  rgba(216,45,253,1) 0%, rgba(253,111,45,1) 100%);
-}
 #finishedTask{
     background: linear-gradient(0deg, rgba(76,45,253,1) 0%, rgba(216,45,253,1) 100%);
+}
+.to-drag.completed::after{
+ content: 'done!	\2713';
+ font-family: 'Homemade Apple', cursive;
+color: #00800030;
+font-size: 2rem;
+ position: absolute;
+ right: 0;
+ bottom: 0;
 }

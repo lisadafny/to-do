@@ -1,12 +1,21 @@
 let color = 'bg-white';
 
 $(document).ready(function(){
-    $('.to-drag').draggable();
+    taskCardDrag();
     $('#btnAddNewCard').on('click', openModalNewCard);
     $('.close-modal-nc').on('click', closeModalNewCard);
     $('#btnCreateTask').on('click', addNewCard);
     $('.color-option').on('click', chooseColor);
-    $('.btn-close-card').on('click', closeTask);
+    $( "#finishedTask" ).droppable({ 
+        drop: function(event, ui) {
+        let taskCard = ui.helper;
+        $(taskCard).addClass('completed');
+    },
+        out: function(event, ui){
+            let taskCard = ui.helper;
+            $(taskCard).removeClass('completed');
+        }
+     });
     $('input, textarea').on('focus', function () {
         labelTopPosition(this);
     });
@@ -41,16 +50,23 @@ function addNewCard(){
     const header = `<div class="row"><div class="col-10"><h2>${title}</h2></div><div class="col-2 btn-close-card">&#x2715</div></div>`
     let taskBody = `<div class='to-drag ${bootstrap}' draggable="true">${header}<p>${description}</p></div>`;
     $(taskBody).appendTo($("#newTask"));
-    $('.to-drag').draggable();
-    $('.btn-close-card').on('click', closeTask);
+    resetModalAddNewCard();
+    taskCardDrag();
+};
+function resetModalAddNewCard(){
     $('input, textarea').val('');
     $('.color-option').removeClass('border border-dark');
     color = 'bg-white';
-};
+}
 function closeTask(){
     let card = $(this).parent().parent();
     card.addClass('d-none');
+    $('.btn-close-card').on('click', closeTask);
 };
+function taskCardDrag(){
+    $('.to-drag').draggable();
+    $('.btn-close-card').on('click', closeTask);
+}
 function chooseColor(){
     $('.color-option').removeClass('border border-dark');
     $(this).addClass('border border-dark');
