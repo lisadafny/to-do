@@ -64,7 +64,9 @@ function closeTask(){
     $('.btn-close-card').on('click', closeTask);
 };
 function taskCardDrag(){
-    $('.to-drag').draggable();
+    $('.to-drag').draggable({
+        opacity: 0.35
+    });
     $('.btn-close-card').on('click', closeTask);
 }
 function chooseColor(){
