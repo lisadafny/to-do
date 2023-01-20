@@ -1,3 +1,11 @@
+html, body{
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
 .to-do-section {
     min-height: 650px;
 }
@@ -16,8 +24,14 @@
     right: 0;
     border-radius: 5%;
 }
-label.label-on-top{
-    top: -1rem;
+label.position-absolute{
+    top: 0;
+    margin-top: 10px;
+    transition: top 0.5s;
+}
+label.position-absolute.label-on-top{
+    top: -1.5rem;
+    transition: top 0.5s;
 }
 .bi-chevron-double-up{
     font-size: 2rem;
@@ -29,4 +43,20 @@ label.label-on-top{
 }
 .btn-close-card{
     cursor: pointer;
+}
+.handwrite-letter{
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.5rem;
+}
+#newTask{
+    background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(34,193,195,1) 100%);
+}
+#doingTask{
+    background: linear-gradient(0deg, rgba(253,111,45,1), rgba(253,187,45,1) 100%);
+}
+#onWayTask{
+    background: linear-gradient(0deg,  rgba(216,45,253,1) 0%, rgba(253,111,45,1) 100%);
+}
+#finishedTask{
+    background: linear-gradient(0deg, rgba(76,45,253,1) 0%, rgba(216,45,253,1) 100%);
 }

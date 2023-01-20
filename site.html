@@ -11,30 +11,33 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid position-relative">
         <div class="row justify-space-between d-flex">
-            <div class="col-11">
+            <div class="col-6">
                 <h1>TO DO TODAY</h1>
             </div>
-            <div class="col-1 justify-content-end d-flex px-0"><span id="btnAddNewCard"><i
-                        class="bi bi-file-plus"></i></span></div>
+            
+            <div class="col-6 justify-content-end d-flex px-0"><p class="handwrite-letter d-flex align-content-center pt-3">Click here to add a task &rArr;</p><span id="btnAddNewCard"><i class="bi bi-file-plus"></i></span></div>
         </div>
         <div class="row">
             <div id="newTask" class="col-3 to-do-section bg-black">
-                <h3 class="text-white">NEW</h3>
+                <h2 class="text-white">NEW</h2>
                 <div class="bg-info p-2 text-white to-drag" draggable="true"><div class="row"><div class="btn-close-card btn-close-card justify-content-end d-flex">&#x2715</div></div><p>DRAG ME UWU</p></div>
             </div>
             <div id="doingTask" class="col-3 to-do-section bg-secondary">
-                <h3 class="text-white">DOING</h3>
+                <h2 class="text-white">DOING</h2>
             </div>
             <div id="onWayTask" class="col-3 to-do-section bg-black">
-                <h3 class="text-white">ON THE WAY</h3>
+                <h2 class="text-white">ON THE WAY</h2>
             </div>
             <div id="finishedTask" class="col-3 to-do-section bg-secondary">
-                <h3 class="text-white">FINISHED</h3>
+                <h2 class="text-white">FINISHED</h2>
             </div>
         </div>
         <section id="modalNewCard" class="d-none position-fixed bg-white p-4">
