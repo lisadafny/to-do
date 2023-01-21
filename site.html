@@ -28,7 +28,7 @@
         <div class="row">
             <div id="newTask" class="col to-do-section bg-black">
                 <h2 class="text-white">NEW</h2>
-                <div class="bg-info p-2 text-white to-drag" draggable="true"><div class="row"><div class="btn-close-card btn-close-card justify-content-end d-flex">&#x2715</div></div><p>DRAG ME UWU</p></div>
+                
             </div>
             <div id="doingTask" class="col to-do-section bg-secondary">
                 <h2 class="text-white">DOING</h2>
@@ -37,7 +37,8 @@
                 <h2 class="text-white">FINISHED</h2>
             </div>
         </div>
-        <section id="modalNewCard" class="d-none position-fixed bg-white p-4">
+        <div id="modalNewCard" class="d-none position-fixed bg-white p-4">
+        <section class="animation-opacity">
             <header class="row">
                 <div class="col-6">
                     <h2 class="py-3">
@@ -72,6 +73,7 @@
             </div>
 
         </section>
+    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
