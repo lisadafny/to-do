@@ -12,24 +12,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
-<link rel="icon" href="resources/favicon64x64.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+    <link rel="icon" href="resources/favicon64x64.png" />
 </head>
 
 <body>
     <div class="container-fluid position-relative">
         <div class="row justify-space-between d-flex">
             <div class="col-12 col-md-6">
-                <h1>TO DO TODAY</h1>
+                <div class="row">
+                    <div class="col-4">
+                        <h1>TO DO TODAY</h1>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <i id="btnEdit" class="bi bi-brush px-2 py-1"></i>
+                    </div>
+                </div>
             </div>
-            
-            <div class="col-12 col-md-6 justify-content-end d-flex px-0"><p class="handwrite-letter d-flex align-content-center pt-3">Click here to add a task &rArr;</p><span id="btnAddNewCard"><i class="bi bi-file-plus"></i></span></div>
+
+            <div class="col-12 col-md-6 justify-content-end d-flex px-0">
+                <p class="handwrite-letter d-flex align-content-center pt-3">Click here to add a task &rArr;</p><span
+                    id="btnAddNewCard"><i class="bi bi-file-plus"></i></span>
+            </div>
         </div>
         <div class="row">
             <div id="newTask" class="col-12 col-md to-do-section bg-black">
                 <h2 class="text-white">NEW</h2>
-                
+
             </div>
             <div id="doingTask" class="col-12 col-md to-do-section bg-secondary">
                 <h2 class="text-white">DOING</h2>
@@ -38,43 +48,58 @@
                 <h2 class="text-white">FINISHED</h2>
             </div>
         </div>
+        <div id="modalEditSections" class="col-12 col-md-4 mt-5 mt-md-0 d-none position-fixed bg-white p-4">
+            <section class="animation-opacity">
+                <header class="row">
+                    <div class="col-10">
+                        <h2 class="py-3">
+                            EDIT SECTIONS
+                        </h2>
+                    </div>
+                    <div class="col-1">
+                        <i class="bi bi-chevron-double-up close-modal-nc"></i>
+                    </div>
+                </header>
+               
+            </section>
+        </div>
         <div id="modalNewCard" class="col-12 col-md-4 mt-5 mt-md-0 d-none position-fixed bg-white p-4">
-        <section class="animation-opacity">
-            <header class="row">
-                <div class="col-6">
-                    <h2 class="py-3">
-                        NEW CARD
-                    </h2>
+            <section class="animation-opacity">
+                <header class="row">
+                    <div class="col-6">
+                        <h2 class="py-3">
+                            NEW CARD
+                        </h2>
+                    </div>
+                    <div class="col-5 pt-3">
+                        <span id="blueOption" class="color-option bg-info rounded-circle px-3 py-1"></span>
+                        <span id="yellowOption" class="color-option bg-warning rounded-circle px-3 py-1"></span>
+                        <span id="greenOption" class="color-option bg-success rounded-circle px-3 py-1"></span>
+                        <span id="redOption" class="color-option bg-danger rounded-circle px-3 py-1"></span>
+                    </div>
+                    <div class="col-1">
+                        <i class="bi bi-chevron-double-up close-modal-nc"></i>
+                    </div>
+                </header>
+                <div class="row position-relative py-2">
+                    <label class="position-absolute px-1" for="newCardTitle">title</label>
+                    <input id="newCardTitle" type="text" />
                 </div>
-                <div class="col-5 pt-3">
-                    <span id="blueOption" class="color-option bg-info rounded-circle px-3 py-1"></span>
-                    <span id="yellowOption" class="color-option bg-warning rounded-circle px-3 py-1"></span>
-                    <span id="greenOption" class="color-option bg-success rounded-circle px-3 py-1"></span>
-                    <span id="redOption" class="color-option bg-danger rounded-circle px-3 py-1"></span>
+                <div class="row position-relative py-2 mt-2">
+                    <label class="position-absolute px-1" for="newCardDescription">description</label>
+                    <textarea id="newCardDescription"></textarea>
                 </div>
-                <div class="col-1">
-                    <i class="bi bi-chevron-double-up close-modal-nc"></i>
+                <div class="row justify-content-center d-flex pt-4">
+                    <div class="col-5">
+                        <button type="button" class="btn btn-outline-dark close-modal-nc w-100">cancel</button>
+                    </div>
+                    <div class="col-5">
+                        <button type="button" id="btnCreateTask" class="btn btn-dark w-100">done</button>
+                    </div>
                 </div>
-            </header>
-            <div class="row position-relative py-2">
-                <label class="position-absolute px-1" for="newCardTitle">title</label>
-                <input id="newCardTitle" type="text" />
-            </div>
-            <div class="row position-relative py-2 mt-2">
-                <label class="position-absolute px-1" for="newCardDescription">description</label>
-                <textarea id="newCardDescription" ></textarea>
-            </div>
-            <div class="row justify-content-center d-flex pt-4">
-                <div class="col-5">
-                    <button type="button" class="btn btn-outline-dark close-modal-nc w-100">cancel</button>
-                </div>
-                <div class="col-5">
-                    <button type="button" id="btnCreateTask" class="btn btn-dark w-100">done</button>
-                </div>
-            </div>
 
-        </section>
-    </div>
+            </section>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="

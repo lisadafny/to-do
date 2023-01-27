@@ -1,11 +1,12 @@
 let color = 'bg-white';
 
-$(document).ready(function(){
+$(document).ready(function () {
     taskCardDrag();
     $('#btnAddNewCard').on('click', openModalNewCard);
     $('.close-modal-nc').on('click', closeModalNewCard);
     $('#btnCreateTask').on('click', addNewCard);
     $('.color-option').on('click', chooseColor);
+    $('#btnEdit').on('click', editSections);
     sectionToDropCards();
     $('input, textarea').on('focus', function () {
         labelTopPosition(this);
@@ -15,30 +16,30 @@ $(document).ready(function(){
     });
 });
 
-function dontWork (){
+function dontWork() {
     alert('Sorry. I do not work, yet :(')
 };
 
-function labelTopPosition({ id }){
+function labelTopPosition({ id }) {
     $(`label[for='${id}'`).addClass('label-on-top');
 };
-function changeLabelPosition({ id }){
+function changeLabelPosition({ id }) {
     let content = $(`#${id}`).val();
-    if(!content){
+    if (!content) {
         $(`label[for='${id}'`).removeClass('label-on-top');
     }
 };
-function openModalNewCard(){
- $('#modalNewCard').removeClass('d-none');
+function openModalNewCard() {
+    $('#modalNewCard').removeClass('d-none');
 };
-function closeModalNewCard(){
-$('#modalNewCard').addClass('fade-out');
-setTimeout(function() {
-    $('#modalNewCard').addClass('d-none');
-    $('#modalNewCard').removeClass('fade-out');
-}, 900);
+function closeModalNewCard() {
+    $('#modalNewCard').addClass('fade-out');
+    setTimeout(function () {
+        $('#modalNewCard').addClass('d-none');
+        $('#modalNewCard').removeClass('fade-out');
+    }, 900);
 };
-function addNewCard(){
+function addNewCard() {
     const title = $('#newCardTitle').val();
     const description = $('#newCardDescription').val();
     const bootstrap = `${color} px-3 py-1 my-2`;
@@ -48,63 +49,69 @@ function addNewCard(){
     resetModalAddNewCard();
     taskCardDrag();
 };
-function resetModalAddNewCard(){
+function resetModalAddNewCard() {
     $('input, textarea').val('');
     $('.color-option').removeClass('border border-dark');
     color = 'bg-white';
 }
-function closeTask(){
+function closeTask() {
     let card = $(this).parent().parent();
     card.remove();
 };
-function taskCardDrag(){
+function taskCardDrag() {
     $('.to-drag').draggable({
         opacity: 0.35,
-        drag: function(event, ui){
+        drag: function (event, ui) {
             $(event.target).addClass('position-absolute')
         }
     });
     $('.btn-close-card').on('click', closeTask);
 }
-function sectionToDropCards(){
-    $("#finishedTask").droppable({ 
-        drop: function(event, ui) {
-        let taskCard = ui.helper;
-        let section = event.target
-        $(taskCard).addClass('completed');
-        $(taskCard).removeClass('position-absolute');
-        $(taskCard).appendTo($(section));
-        $(taskCard).css('position', '');
-    },
-        out: function(event, ui){
+function sectionToDropCards() {
+    $("#finishedTask").droppable({
+        drop: function (event, ui) {
+            let taskCard = ui.helper;
+            let section = event.target
+            $(taskCard).addClass('completed');
+            $(taskCard).removeClass('position-absolute');
+            $(taskCard).appendTo($(section));
+            $(taskCard).css('position', '');
+        },
+        out: function (event, ui) {
             let taskCard = ui.helper;
             $(taskCard).removeClass('completed');
         }
-     });
-     $("#doingTask").droppable({ 
-        drop: function(event, ui) {
-        let taskCard = ui.helper;
-        let section = event.target
-        $(taskCard).removeClass('position-absolute');
-        $(taskCard).appendTo($(section));
-        $(taskCard).css('position', '');
-    }
-     });
-     $("#newTask").droppable({ 
-        drop: function(event, ui) {
-        let taskCard = ui.helper;
-        let section = event.target
-        $(taskCard).removeClass('position-absolute');
-        $(taskCard).appendTo($(section));
-        $(taskCard).css('position', '');
-    }
-     });
+    });
+    $("#doingTask").droppable({
+        drop: function (event, ui) {
+            let taskCard = ui.helper;
+            let section = event.target
+            $(taskCard).removeClass('position-absolute');
+            $(taskCard).appendTo($(section));
+            $(taskCard).css('position', '');
+        }
+    });
+    $("#newTask").droppable({
+        drop: function (event, ui) {
+            let taskCard = ui.helper;
+            let section = event.target
+            $(taskCard).removeClass('position-absolute');
+            $(taskCard).appendTo($(section));
+            $(taskCard).css('position', '');
+        }
+    });
 }
-function chooseColor(){
+function editSections(){
+    const sectionOne = $('#newTask h2');
+    const sectionTwo = $('#doingTask h2');
+    const sectionThree = $('#finishedTask h2');
+    
+}
+function chooseColor() {
     $('.color-option').removeClass('border border-dark');
     $(this).addClass('border border-dark');
     const element = $(this).attr('id');
-    switch (element){
+    switch (element) {
         case 'blueOption':
             color = 'bg-info';
             break;
