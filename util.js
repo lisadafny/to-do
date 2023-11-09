@@ -21,12 +21,12 @@ function dontWork() {
 };
 
 function labelTopPosition({ id }) {
-    $(`label[for='${id}'`).addClass('label-on-top');
+    $(`label[for='${id}']`).addClass('label-on-top');
 };
 function changeLabelPosition({ id }) {
     let content = $(`#${id}`).val();
     if (!content) {
-        $(`label[for='${id}'`).removeClass('label-on-top');
+        $(`label[for='${id}']`).removeClass('label-on-top');
     }
 };
 function openModalNewCard() {
