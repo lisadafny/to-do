@@ -52,6 +52,8 @@ function addNewCard() {
 function resetModalAddNewCard() {
     $('input, textarea').val('');
     $('.color-option').removeClass('border border-dark');
+    $("#modalNewCard").addClass("bg-white");
+    $("#modalNewCard").removeClass(color);
     color = 'bg-white';
 }
 function closeTask() {
@@ -111,6 +113,7 @@ function chooseColor() {
     $('.color-option').removeClass('border border-dark');
     $(this).addClass('border border-dark');
     const element = $(this).attr('id');
+    $("#modalNewCard").removeClass(color);
     switch (element) {
         case 'blueOption':
             color = 'bg-info';
@@ -127,4 +130,6 @@ function chooseColor() {
         default:
             color = 'bg-white';
     };
+    $("#modalNewCard").removeClass("bg-white");
+    $("#modalNewCard").addClass(color);
 };
