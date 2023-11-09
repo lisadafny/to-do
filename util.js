@@ -105,7 +105,7 @@ function editSections(){
     const sectionOne = $('#newTask h2');
     const sectionTwo = $('#doingTask h2');
     const sectionThree = $('#finishedTask h2');
-    
+    dontWork()
 }
 function chooseColor() {
     $('.color-option').removeClass('border border-dark');
